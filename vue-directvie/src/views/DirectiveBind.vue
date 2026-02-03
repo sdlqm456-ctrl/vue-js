@@ -14,6 +14,23 @@ const imgAttributes = reactive({
   alt: "vue 기본로고",
   width: "150px",
 });
+// style 속성: css 기반 적용하는 항목, 값은 모두 정해져 있음
+const txtcolor = ref("pink");
+const backColor = ref("green");
+const styleAttributes = reactive({
+  color: "pink",
+  backgroundColor: "green", // background-color
+});
+// class 속성
+const classInfo = ref("txtColorRed txtSize24");
+const isTxtColorRed = ref(true);
+const isBgColorBlue = ref(true);
+const classStyles = reactive({
+  txtColorRed: true,
+  bgColorBlue: false,
+  txtSize24: true,
+});
+const msg = ref("Hello, World");
 </script>
 <template>
   <h2>특정 속성의 경우</h2>
@@ -25,14 +42,45 @@ const imgAttributes = reactive({
   <h2>일반속성</h2>
   <p><a href="http://vuejs.org">Vue.js 사이트</a></p>
   <p>
-    <a v-bind:href="url">Vue.js 사이트</a>
+    <a
+      v-bind:href="url"
+      v-bind:style="{ color: txtcolor, backgroundColor: backColor }"
+      >Vue.js 사이트</a
+    >
   </p>
   <p>
-    <a v-bind:href="url + '/guide/introdution.html'"> Vue.js 가이드 페이지 </a>
+    <a
+      v-bind:href="url + '/guide/introdution.html'"
+      v-bind:style="styleAttributes"
+    >
+      Vue.js 가이드 페이지
+    </a>
   </p>
   <p>
     <!--disabled: 화면에 보이지만 비활성화 상태-->
     <button v-bind:disabled="isDisabled">동의합니다</button>
   </p>
   <p><img alt="vue 로고" v-bind="imgAttributes" /></p>
+  <hr />
+  <h3>Class 속성</h3>
+  <p id="cp" v-bind:class="classInfo">{{ msg }}</p>
+  <p v-bind:class="{ txtColorRed: isTxtColorRed, bgColorBlue: isBgColorBlue }">
+    {{ msg }}
+  </p>
+  <p v-bind:class="classStyles">{{ msg }}</p>
 </template>
+
+<style scoped>
+.txtColorRed {
+  color: red;
+}
+.txt-color-pink {
+  color: pink;
+}
+.bgColorBlue {
+  background-color: blue;
+}
+.txtSize24 {
+  font-size: 24px;
+}
+</style>
