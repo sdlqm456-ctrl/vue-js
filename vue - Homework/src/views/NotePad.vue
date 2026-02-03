@@ -7,6 +7,11 @@ const addMemo = () => {
   memoList.value.push(newMemoList.value);
   newMemoList.value = "";
 };
+// 메모삭제함수
+// splice(시작위치,삭제할 개수): 데이터를 추가, 삭제, 교체하는 메소드
+const deleteMemo = (index) => {
+  memoList.value.splice(index, 1);
+};
 
 // [미션 1] 반응형 데이터 만들기
 // 1. 입력창의 값을 저장할 변수 (ref)
@@ -22,15 +27,19 @@ const addMemo = () => {
     <h1>My Simple Memo</h1>
 
     <div class="input-container">
-      <input placeholder="메모를 입력하세요" type="text" v-model="newMeno" />
+      <input
+        placeholder="메모를 입력하세요"
+        type="text"
+        v-model="newMemoList"
+      />
 
-      <button>등록</button>
+      <button v-on:click="addMemo">등록</button>
     </div>
 
     <ul class="memo-list">
-      <li>
-        <span>메모 내용이 여기에 나옵니다</span>
-        <button class="del-btn">삭제</button>
+      <li v-for="(memo, idx) in memoList">
+        <span>{{ memo }}</span>
+        <button @click="deleteMemo(index)">삭제</button>
       </li>
     </ul>
   </div>

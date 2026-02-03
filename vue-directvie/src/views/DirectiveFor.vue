@@ -5,12 +5,14 @@ const aray = ["마우스", "키보드", "USB", "마우스패드"];
 const itemList = ref(aray);
 const firends = ref(["홍길동", "김길동"]);
 let newFriend = ref("이재현");
+
 // 함수
 const addFriend = () => {
   firends.value.push(newFriend.value);
   newFriend.value = "";
 };
 </script>
+
 <template>
   <h2>전자기기 목록</h2>
   <ul>
