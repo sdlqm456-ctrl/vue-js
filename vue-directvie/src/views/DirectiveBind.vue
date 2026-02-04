@@ -6,6 +6,8 @@
 import { ref, reactive, computed } from "vue";
 const info = ref("<strong>http://vuejs.org</strong>");
 const url = ref("http://vuejs.org");
+// isDisabled: 요소의 비활성화 상태를 제어하는 반응형 변수
+// true: 버튼 비활성화 false: 버튼 활성화
 const isDisabled = ref(true);
 const imgAttributes = reactive({
   // 필드명 => 속성이름
@@ -15,6 +17,7 @@ const imgAttributes = reactive({
   width: "150px",
 });
 // style 속성: css 기반 적용하는 항목, 값은 모두 정해져 있음
+// 단일 반응형 값
 const txtcolor = ref("pink");
 const backColor = ref("green");
 const styleAttributes = reactive({
@@ -22,7 +25,8 @@ const styleAttributes = reactive({
   backgroundColor: "green", // background-color
 });
 // class 속성
-const classInfo = ref("txtColorRed txtSize24");
+const classInfo = ref("txtColorRed txtSize24"); // 여러 개의 css 클래스를 문자열로 묶어서 적용하는 반응형 변수
+// 특정 class의 적용 여부를 판단
 const isTxtColorRed = ref(true);
 const isBgColorBlue = ref(true);
 const classStyles = reactive({
@@ -57,7 +61,7 @@ const msg = ref("Hello, World");
     </a>
   </p>
   <p>
-    <!--disabled: 화면에 보이지만 비활성화 상태-->
+    <!--isDisabled: is(상태를 나타냄) / disabled: 비활성화 => 지금 비활성화 상태인지? true 또는 false  -->
     <button v-bind:disabled="isDisabled">동의합니다</button>
   </p>
   <p><img alt="vue 로고" v-bind="imgAttributes" /></p>

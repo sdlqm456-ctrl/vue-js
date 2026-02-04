@@ -8,8 +8,10 @@ const point = ref(100); // 고객의 포인트 점수
 const checked = ref(false);
 </script>
 <template>
+  <!--버튼 클릭 시 getRendomvalue()실행-->
   <button v-on:click="getRendomvalue()">Random 점수</button>
   <p>{{ score }}</p>
+  <!--위에서 부터 순서대로 검사 => 조건이 true인것만 화면에 표시-->
   <p v-if="score >= 90">A학점</p>
   <p v-else-if="score >= 80">B학점</p>
   <p v-else-if="score >= 70">C학점</p>
@@ -19,7 +21,7 @@ const checked = ref(false);
   <input type="text" v-model="point" />
   <p name="VVIP" v-if="point >= 300">점수 {{ point }}은 우수 고객입니다</p>
   <p name="SVIP" v-else-if="point >= 200">점수 {{ point }}은 일반 고객입니다</p>
-  <p name="VIP" v-else="point >= 100">점수 {{ point }}은 신규 고객입니다</p>
+  <p name="VIP" v-else>점수 {{ point }}은 신규 고객입니다</p>
   <hr />
   <label><input type="checkbox" v-model="checked" /> 동의 합니다</label>
   <!--v-if: 조건에 따라 테그를 생성/ 중간에 관련 없는 테그 사용불가-->
