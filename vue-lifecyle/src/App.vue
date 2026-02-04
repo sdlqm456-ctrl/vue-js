@@ -1,35 +1,12 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
-import HelloWorld from "./components/HelloWorld.vue";
 </script>
 
 <template>
-  <header>
-    <img
-      alt="Vue logo"
-      class="logo"
-      src="@/assets/logo.svg"
-      width="125"
-      height="125"
-    />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/bind">Bind</RouterLink>
-        <RouterLink to="/model">Modle</RouterLink>
-        <RouterLink to="/on">On</RouterLink>
-        <RouterLink to="/for">For</RouterLink>
-        <RouterLink to="/forObj">ForObj</RouterLink>
-        <RouterLink to="/If">If</RouterLink>
-        <RouterLink to="/todo">Todo</RouterLink>
-      </nav>
-    </div>
-  </header>
-  <!--vue router를 기반으로 호출하는 컴포넌트 출력-->
+  <RouterLink to="/hook">Hook</RouterLink> |
+  <RouterLink to="/watch">watch</RouterLink> |
+  <RouterLink to="/oneComp">OneComp</RouterLink> |
+  <br />
   <RouterView />
 </template>
 
