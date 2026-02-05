@@ -3,9 +3,14 @@
 import { RouterLink, useRouter } from "vue-router";
 const router = useRouter();
 // memberDetail에서 membersId 값 불러오기
+// goToDetail: 상세 페이지(memberDetail) 이동
+// membersId 클릭한 회원의 id 값
 const goToDetail = (membersId) => {
   router.push({ name: "memberDetail", params: { id: membersId } });
 };
+
+// onBeforeMount: 화면에 그려지기 직전 맴버목록을 미리 가져오기
+// 화면이 먼저뜨고 데이터가 나중에 오면 사용자가 깨진화면을 보게 되서 먼저 불러오기
 import { onBeforeMount, ref } from "vue";
 
 // member의 정보를 서버에서 받아오기 (fetch 함수 사용)
@@ -20,8 +25,6 @@ const findMemberList = async () => {
   members.value = list;
 };
 // Lifecycle Hook 중 가장먼저 실행 (가장 마지막에 작성)
-// onBeforeMount: 화면에 그려지기 직전 맴버목록을 미리 가져오기
-// 화면이 먼저뜨고 데이터가 나중에 오면 사용자가 깨진화면을 보게 되서 먼저 불러오기
 onBeforeMount(() => {
   findMemberList();
 });

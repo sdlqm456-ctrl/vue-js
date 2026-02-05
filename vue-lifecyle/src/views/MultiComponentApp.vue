@@ -16,9 +16,9 @@ const msgHandler = () => {
 };
 const startName = ref("부모");
 const startPoint = ref(0);
-const createStartPoint = (target, name) => {
-  console.log(target, name);
-  startName.value = name;
+const createStartPoint = (target, massage) => {
+  console.log(target, massage);
+  startName.value = massage;
   startPoint.value = Math.ceil(Math.random() * 5);
 };
 </script>
@@ -34,9 +34,10 @@ const createStartPoint = (target, name) => {
     <h2>컴포넌트 여러개</h2>
     <OneSection
       v-for="post in postList"
-      v-bind:content="post.massage"
-      v-on:sendMsg="msgHandler"
-      v-on:callstarPoint="createStartPoint"
+      :key="post.name"
+      :content="post.massage"
+      v-on:send-msg="msgHandler"
+      v-on:call-start-point="createStartPoint"
     />
   </section>
 </template>

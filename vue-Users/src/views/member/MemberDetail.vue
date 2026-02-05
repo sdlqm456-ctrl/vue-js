@@ -8,12 +8,13 @@ const route = useRoute(); // 호출당한 정보 (어떠한 정보를 불러올�
 const memId = route.params.id; // 경로에 있는 id 값 불러오기
 // console.log(memId);
 const server = "https://jsonplaceholder.typicode.com";
+// 회원 ID를 하나 받아서 서버에 해당하는 회원 정보 가져오기
 const findMemberById = async (memberId) => {
   let info = await fetch(`${server}/users/${memberId}`)
     .then((res) => res.json())
     .catch((err) => console.log(err));
   // console.log(info);
-  member.value = info;
+  member.value = info; // 가져온 데이터 저장 (서버에서 받은 회원 정보)
 };
 onBeforeMount(() => {
   findMemberById(memId);
