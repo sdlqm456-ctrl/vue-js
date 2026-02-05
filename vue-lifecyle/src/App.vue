@@ -6,6 +6,7 @@ import { RouterLink, RouterView } from "vue-router";
   <RouterLink to="/hook">Hook</RouterLink> |
   <RouterLink to="/watch">watch</RouterLink> |
   <RouterLink to="/oneComp">OneComp</RouterLink> |
+  <RouterLink to="/MultiComp">MultiComp</RouterLink> |
   <br />
   <RouterView />
 </template>

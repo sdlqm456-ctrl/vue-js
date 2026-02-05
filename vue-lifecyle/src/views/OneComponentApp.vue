@@ -17,6 +17,7 @@ const fourVal = ref("네번째");
     </section>
   </section>
   <section>
+    <h2>컴포넌트 여러개</h2>
     <section class="box">
       <h4>한개의 컴포넌트</h4>
       <p>{{ twoVal }}</p>
